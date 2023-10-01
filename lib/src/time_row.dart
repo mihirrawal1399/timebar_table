@@ -3,19 +3,19 @@ import 'package:flutter/material.dart';
 class TimeRow extends StatelessWidget {
   const TimeRow({
     super.key,
-    required this.startTime,
-    required this.endTime,
+    required this.tableStartTime,
+    required this.tableEndTime,
     required this.timeInterval,
     required this.intervalWidth,
   });
 
   ///start time for the time range header
-  final DateTime startTime;
+  final DateTime tableStartTime;
 
   ///end time for the time range header
-  final DateTime endTime;
+  final DateTime tableEndTime;
 
-  ///time intervals which interates from [startTime] to [endTime]
+  ///time intervals which interates from [tableStartTime] to [tableEndTime]
   final Duration timeInterval;
 
   ///width of the each [timeInterval]
@@ -25,9 +25,9 @@ class TimeRow extends StatelessWidget {
   Widget build(BuildContext context) {
     List<Widget> timeRowItems = [];
 
-    // Loop through time intervals from startTime to endTime
-    DateTime currentTime = startTime;
-    while (currentTime.isBefore(endTime)) {
+    // Loop through time intervals from tableStartTime to tableEndTime
+    DateTime currentTime = tableStartTime;
+    while (currentTime.isBefore(tableEndTime)) {
       timeRowItems.add(
         TimeRowItem(
           intervalWidth: intervalWidth,
