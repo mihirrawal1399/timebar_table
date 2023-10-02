@@ -3,6 +3,7 @@ library timebar_table;
 import 'package:flutter/material.dart';
 import 'package:timebar_table/src/data_section.dart';
 
+import 'src/table_column.dart';
 import 'src/time_row.dart';
 
 class TimeBarTable extends StatelessWidget {
@@ -52,11 +53,13 @@ class TimeBarTable extends StatelessWidget {
             ],
           ),
         ),
-        // Positioned(
-        //     top: 100,
-        //     left: 0,
-        //     child: GridTableColumn(),
-        //   ),
+        Positioned(
+          top: 100,
+          left: 0,
+          child: TableColumn(
+            widgets: tableDataList.keys.toList(),
+          ),
+        ),
       ],
     );
   }

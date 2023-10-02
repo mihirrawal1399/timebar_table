@@ -126,7 +126,6 @@ class GridRowBox extends StatelessWidget {
         child: reservation != null
             ? Row(
                 children: [
-                  SizedBoxWidth6,
                   const CircleAvatar(
                     radius: 15,
                     child: Icon(
@@ -134,15 +133,11 @@ class GridRowBox extends StatelessWidget {
                       size: 15,
                     ),
                   ),
-                  SizedBoxWidth6,
                   Text(
                     reservation?.covers.toString() ?? '',
-                    style: $styles.text.lato12_700Black,
                   ),
-                  SizedBoxWidth6,
                   Text(
                     reservation?.name ?? '',
-                    style: $styles.text.lato12_400,
                   ),
                 ],
               )
