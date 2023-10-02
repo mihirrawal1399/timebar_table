@@ -1,21 +1,48 @@
 import 'package:flutter/material.dart';
+import 'package:timebar_table/src/firstWhereOrNull_extension.dart';
+
+import '../timebar_table.dart';
 
 class DataSection extends StatelessWidget {
+  final Map<Widget, List<BarData?>?> tableDataMap;
+
+  ///width of the each [timeInterval]
+  final double intervalWidth;
+
+  ///start time for the time range header
+  final DateTime tableStartTime;
+
+  ///end time for the time range header
+  final DateTime tableEndTime;
+
+  ///time intervals which interates from [tableStartTime] to [tableEndTime]
+  final Duration timeInterval;
+
+  ///custom empty widget to show if no BarData for perticular time lapse
+  final Widget emptyDataWidget;
+
   const DataSection({
     Key? key,
+    required this.tableDataMap,
+    required this.intervalWidth,
+    required this.tableStartTime,
+    required this.tableEndTime,
+    required this.timeInterval,
+    required this.emptyDataWidget,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    // Define a list of table IDs from 1 to 10
-    final tableIds = List.generate(10, (index) => (index + 1).toString());
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        for (final tableId in tableIds) ...[
-          GridRowBuilder(
-            tableId: tableId,
+        for (final entry in tableDataMap.entries) ...[
+          DataRowBuilder(
+            tableStartTime: tableStartTime,
+            tableEndTime: tableEndTime,
+            timeInterval: timeInterval,
+            barDataList: entry.value,
+            emptyDataWidget: emptyDataWidget,
           ),
         ],
       ],
@@ -23,57 +50,49 @@ class DataSection extends StatelessWidget {
   }
 }
 
-class GridRowBuilder extends StatelessWidget {
-  final String? tableId;
+class DataRowBuilder extends StatelessWidget {
+  final List<BarData?>? barDataList;
 
-  const GridRowBuilder({
+  ///start time for the time range header
+  final DateTime tableStartTime;
+
+  ///end time for the time range header
+  final DateTime tableEndTime;
+
+  ///time intervals which interates from [tableStartTime] to [tableEndTime]
+  final Duration timeInterval;
+
+  ///custom empty widget to show if no BarData for perticular time lapse
+  final Widget emptyDataWidget;
+
+  const DataRowBuilder({
     Key? key,
-    required this.tableId,
+    this.barDataList,
+    required this.tableStartTime,
+    required this.tableEndTime,
+    required this.timeInterval,
+    required this.emptyDataWidget,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final reservations =
-        context.select((ReservationsCubit value) => value.state.reservations);
+    final List<Widget> rowWidgets = [];
+    final currentTime = tableStartTime;
 
-    // Define the start and end times
-    const startTime = TimeOfDay(hour: 7, minute: 30);
-    const endTime = TimeOfDay(hour: 12, minute: 30);
-
-    final rowBoxesWidgets = <Widget>[];
-    var currentTime = startTime;
-
-    while (currentTime != (endTime)) {
-      final reservation = reservations.firstWhereOrNull(
-        (res) {
-          final resStartTimeInMinutes = res.time!.hour * 60 + res.time!.minute;
-          final resEndTimeInMinutes =
-              resStartTimeInMinutes + res.duration!.inMinutes;
-          final currentTimeInMinutes =
-              currentTime.hour * 60 + currentTime.minute;
-
-          return res.tableEntity?.id == tableId &&
-              resStartTimeInMinutes <= currentTimeInMinutes &&
-              resEndTimeInMinutes > currentTimeInMinutes;
-        },
-      );
-
-      final containerWidth = reservation != null
-          ? (reservation.duration!.inMinutes / 30) * 50.0
-          : 50.0;
-
-      rowBoxesWidgets.add(
-        GridRowBox(
-          containerWidth: containerWidth,
-          reservation: reservation,
-        ),
-      );
-
-      if (reservation != null) {
-        currentTime = _addMinutesToTimeOfDay(
-            currentTime, reservation.duration!.inMinutes);
-      } else {
-        currentTime = _addMinutesToTimeOfDay(currentTime, 30);
+    while (currentTime.isBefore(tableEndTime)) {
+      if (barDataList != null) {
+        for (final barData in barDataList!) {
+          if (barData != null &&
+              barData.dataStartTime == currentTime &&
+              barData.dataWidget != null) {
+            rowWidgets
+                .add(barData.dataWidget!); //TODO:replace with custom width
+            currentTime.add(barData.dataDuration);
+          } else {
+            rowWidgets.add(emptyDataWidget);
+            currentTime.add(timeInterval);
+          }
+        }
       }
     }
 

@@ -23,6 +23,9 @@ class TimeBarTable extends StatelessWidget {
   ///and each row can have any list of [BarData] for given key.
   final Map<Widget, List<BarData?>?> tableDataList;
 
+  ///custom empty widget to show if no BarData for perticular time lapse
+  final Widget emptyDataWidget;
+
   const TimeBarTable({
     Key? key,
     required this.tableStartTime,
@@ -30,6 +33,7 @@ class TimeBarTable extends StatelessWidget {
     required this.timeInterval,
     required this.intervalWidth,
     required this.tableDataList,
+    this.emptyDataWidget = const SizedBox.shrink(),
   }) : super(key: key);
 
   @override
@@ -49,7 +53,14 @@ class TimeBarTable extends StatelessWidget {
                 timeInterval: timeInterval,
                 intervalWidth: intervalWidth,
               ),
-              const DataSection(),
+              DataSection(
+                tableDataMap: tableDataList,
+                intervalWidth: intervalWidth,
+                tableEndTime: tableEndTime,
+                tableStartTime: tableStartTime,
+                timeInterval: timeInterval,
+                emptyDataWidget: emptyDataWidget,
+              ),
             ],
           ),
         ),
