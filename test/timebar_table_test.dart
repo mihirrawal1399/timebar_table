@@ -1,7 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:timebar_table/timebar_table.dart';
-
 void main() {
   test('adds one to input values', () {
     // final calculator = Calculator();

@@ -1,7 +1,12 @@
 name: timebar_table
-description: A new Flutter package project.
+description: A Flutter package for creating time-based bar charts.
 version: 0.0.1
-homepage:
+homepage: https://github.com/mihirrawal1399
+
+# plugin:
+#   platforms:
+#     web: any
+
 
 environment:
   sdk: '>=3.0.6 <4.0.0'
@@ -52,3 +57,5 @@ flutter:
   #
   # For details regarding fonts in packages, see
   # https://flutter.dev/custom-fonts/#from-packages
+
+license: MIT

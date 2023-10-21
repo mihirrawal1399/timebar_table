@@ -1,0 +1,13 @@
+name: timebar_table_example
+description: An example Flutter application that demonstrates how to use the timebar_table package.
+version: 1.0.0
+dependencies:
+  flutter:
+    sdk: flutter
+  timebar_table:
+    path: ../
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+publish_to: none
