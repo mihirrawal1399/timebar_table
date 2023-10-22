@@ -79,15 +79,17 @@ class DataRowBuilder extends StatelessWidget {
         // Check if there is a matching element in barDataList
         final matchingData = barDataList?.firstWhereOrNull((data) {
           return data != null &&
-              data.dataStartTime.isBefore(currentTime) &&
+              (data.dataStartTime.isAtSameMomentAs(currentTime) ||
+                  data.dataStartTime.isBefore(currentTime)) &&
               data.dataStartTime.add(data.dataDuration).isAfter(currentTime);
         });
 
         if (matchingData != null) {
-          final numberOfIntervals =
+          // Calculate the width based on the ratio of its duration to the time interval
+          final durationRatio =
               matchingData.dataDuration.inMinutes / timeInterval.inMinutes;
+          final barDataWidth = durationRatio * intervalWidth;
 
-          final barDataWidth = numberOfIntervals * intervalWidth;
           rowWidgets.add(BarDataWidget(
             containerWidth: barDataWidth,
             customWidget: matchingData.dataWidget,
