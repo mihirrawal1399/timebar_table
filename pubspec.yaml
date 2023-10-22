@@ -3,10 +3,6 @@ description: A Flutter package for creating time-based bar charts.
 version: 0.0.1
 homepage: https://github.com/mihirrawal1399
 
-# plugin:
-#   platforms:
-#     web: any
-
 
 environment:
   sdk: '>=3.0.6 <4.0.0'

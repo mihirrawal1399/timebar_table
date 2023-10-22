@@ -28,11 +28,13 @@ class TimeRow extends StatelessWidget {
     // Loop through time intervals from tableStartTime to tableEndTime
     DateTime currentTime = tableStartTime;
     while (currentTime.isBefore(tableEndTime)) {
+      final endTime = currentTime.add(timeInterval);
+      final timeText =
+          '${currentTime.hour}:${currentTime.minute.toString().padLeft(2, '0')} - ${endTime.hour}:${endTime.minute.toString().padLeft(2, '0')}';
       timeRowItems.add(
         TimeRowItem(
           intervalWidth: intervalWidth,
-          text:
-              '${currentTime.hour}:${currentTime.minute.toString().padLeft(2, '0')}',
+          text: timeText,
         ),
       );
 
