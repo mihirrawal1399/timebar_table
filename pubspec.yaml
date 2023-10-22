@@ -1,8 +1,7 @@
 name: timebar_table
-description: A Flutter package for creating time-based bar charts.
+description: A Flutter package for creating time-based bar charts, allowing you to visualize and display time-related data efficiently. It provides a customizable and flexible interface to present your data in a time-based context. Ideal for applications involving scheduling, time management, or any use case where time-specific data needs representation.
 version: 0.0.1
 homepage: https://github.com/mihirrawal1399
-
 
 environment:
   sdk: '>=3.0.6 <4.0.0'
@@ -17,10 +16,6 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: ^2.0.0
 
-# For information on the generic Dart part of this file, see the
-# following page: https://dart.dev/tools/pub/pubspec
-
-# The following section is specific to Flutter packages.
 flutter:
 
   # To add assets to your package, add an assets section, like this:
@@ -31,12 +26,12 @@ flutter:
   # For details regarding assets in packages, see
   # https://flutter.dev/assets-and-images/#from-packages
   #
-  # An image asset can refer to one or more resolution-specific "variants", see
+  # An image asset can refer to one or more resolution-specific "variants," see
   # https://flutter.dev/assets-and-images/#resolution-aware
 
   # To add custom fonts to your package, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a
-  # "family" key with the font family name, and a "fonts" key with a
+  # "family" key with the font family name and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
   # fonts:
