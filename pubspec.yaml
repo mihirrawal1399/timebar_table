@@ -1,6 +1,6 @@
 name: timebar_table
 description: A Flutter package for creating time-based bar charts, allowing you to visualize and display time-related data efficiently. It provides a customizable and flexible interface to present your data in a time-based context. Ideal for applications involving scheduling, time management, or any use case where time-specific data needs representation.
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/mihirrawal1399
 
 environment:
