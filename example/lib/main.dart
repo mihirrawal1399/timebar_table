@@ -15,43 +15,186 @@ final Map<Widget, List<BarData?>?> tableDataMap = {
     BarData(
       dataDuration: const Duration(minutes: 60),
       dataStartTime: DateTime(2023, 9, 30, 9, 0),
-      dataWidget: const Text("9am for 60mins"),
+      dataWidget: Container(
+        height: double.maxFinite,
+        decoration: BoxDecoration(
+          border: Border.all(),
+          color: Colors.red,
+        ),
+        child: const Center(
+          child: Text(
+            "9am for 60mins",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+        ),
+      ),
     ),
     BarData(
       dataDuration: const Duration(minutes: 90),
       dataStartTime: DateTime(2023, 9, 30, 11, 0),
-      dataWidget: const Text("11am for 90mins"),
+      dataWidget: Container(
+        width: double.maxFinite,
+        height: double.maxFinite,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8),
+          color: Colors.blue,
+        ),
+        child: const Center(
+          child: Text(
+            "11am for 90mins",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              color: Colors.red,
+              fontWeight: FontWeight.w200,
+            ),
+          ),
+        ),
+      ),
     ),
   ],
   const Text('Table 2'): [
     BarData(
       dataDuration: const Duration(minutes: 120),
       dataStartTime: DateTime(2023, 9, 30, 10, 30),
-      dataWidget: const Text("10am for 120mins"),
+      dataWidget: Container(
+        width: double.maxFinite,
+        height: double.maxFinite,
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: Colors.black,
+            width: 4,
+            strokeAlign: BorderSide.strokeAlignCenter,
+          ),
+          borderRadius: BorderRadius.circular(4),
+          color: Colors.green,
+        ),
+        child: const Center(
+          child: Text(
+            "10am for 120mins",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              color: Colors.black,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+        ),
+      ),
     ),
   ],
   const Text('Table 3'): [
     BarData(
       dataDuration: const Duration(minutes: 60),
       dataStartTime: DateTime(2023, 9, 30, 8, 0),
-      dataWidget: const Text("8am for 60mins"),
+      dataWidget: Container(
+        width: double.maxFinite,
+        height: double.maxFinite,
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: Colors.black,
+            width: 2,
+            strokeAlign: BorderSide.strokeAlignCenter,
+          ),
+          borderRadius: BorderRadius.circular(32),
+          color: Colors.blue,
+        ),
+        child: const Center(
+          child: Text(
+            "8am for 60mins",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              color: Colors.red,
+              fontWeight: FontWeight.w400,
+            ),
+          ),
+        ),
+      ),
     ),
     BarData(
       dataDuration: const Duration(minutes: 120),
       dataStartTime: DateTime(2023, 9, 30, 11, 30),
-      dataWidget: const Text("1130am for 120mins"),
+      dataWidget: Container(
+        width: double.maxFinite,
+        height: double.maxFinite,
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: Colors.white,
+            width: 4,
+            strokeAlign: BorderSide.strokeAlignCenter,
+          ),
+          borderRadius: BorderRadius.circular(6),
+          color: Colors.red,
+        ),
+        child: const Center(
+          child: Text(
+            "1130am for 120mins",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.w400,
+            ),
+          ),
+        ),
+      ),
     ),
   ],
   const Text('Table 5'): [
     BarData(
       dataDuration: const Duration(minutes: 120),
       dataStartTime: DateTime(2023, 9, 30, 11, 0),
-      dataWidget: const Text("11am for 120mins"),
+      dataWidget: Container(
+        width: double.maxFinite,
+        height: double.maxFinite,
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: Colors.blue,
+            width: 4,
+            strokeAlign: BorderSide.strokeAlignCenter,
+          ),
+          borderRadius: BorderRadius.circular(6),
+          color: Colors.yellow,
+        ),
+        child: const Center(
+          child: Text(
+            "11am for 120mins",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              color: Colors.black,
+              fontWeight: FontWeight.w200,
+            ),
+          ),
+        ),
+      ),
     ),
     BarData(
       dataDuration: const Duration(minutes: 60),
       dataStartTime: DateTime(2023, 9, 30, 9, 0),
-      dataWidget: const Text("9am for 60mins"),
+      dataWidget: Container(
+        width: double.maxFinite,
+        height: double.maxFinite,
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: Colors.blue,
+            width: 4,
+            strokeAlign: BorderSide.strokeAlignCenter,
+          ),
+          borderRadius: BorderRadius.circular(6),
+          color: Colors.orange,
+        ),
+        child: const Center(
+          child: Text(
+            "9am for 60mins",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              color: Colors.blue,
+              fontWeight: FontWeight.w800,
+            ),
+          ),
+        ),
+      ),
     ),
   ],
   // Add more test data as needed
@@ -59,7 +202,14 @@ final Map<Widget, List<BarData?>?> tableDataMap = {
 
 final Widget emptyDataWidget = Container(
   width: intervalWidth,
-  color: Colors.grey,
+  decoration: BoxDecoration(
+    border: Border.all(),
+    color: Colors.red,
+  ),
+  padding: const EdgeInsets.all(2),
+  child: Container(
+    color: Colors.lightGreen,
+  ),
 );
 void main() {
   runApp(MaterialApp(
