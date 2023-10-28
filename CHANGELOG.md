@@ -11,3 +11,9 @@
 - Improved documentation.
 - Updated example code.
 - Updated Read me.
+
+## 0.0.5
+
+- Added TODO
+- Modified Readme
+-

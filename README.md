@@ -68,6 +68,16 @@ For detailed usage and customization options, consult the [API documentation](ht
 
 To see how the package can be customized and integrated into your Flutter application, check out the included example.
 
+## To-Do List
+
+- [ ] Add support for Slivers and Custom Scroll Views.
+- [ ] Modify readme.
+- [ ] Implement Slivers and Custom Scroll Views as parameters for users.
+- [ ] Provide additional customization parameters for elements.
+- [ ] Introduce mapper functions for easily mapping custom objects for `tableDataList`.
+- [ ] Maybe add code coverage.
+
+
 ## Contributions
 
 Contributions are welcome! If you encounter any issues, have feature suggestions, or would like to contribute, please feel free to open an [issue](https://github.com/mihirrawal1399/timebar_table/issues) or submit a [pull request](https://github.com/mihirrawal1399/timebar_table/pulls).
