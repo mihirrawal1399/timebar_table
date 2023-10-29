@@ -17,3 +17,8 @@
 - Added TODO
 - Modified Readme
 - Added basic flutter Github action 
+
+## 0.0.8
+
+- changed description to match dart conventions
+- import fixes for better pub dev score
