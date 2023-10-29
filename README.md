@@ -2,6 +2,8 @@
 
 A Flutter package for time-based data visualization. Create bar charts to represent data over time intervals with ease. Ideal for scheduling and event timelines.
 
+![image](https://github.com/mihirrawal1399/timebar_table/assets/54273763/daabeee7-1517-41c1-aa55-a7aecc16c6f1)
+
 ## Features
 
 - **Time-Based Visualization:** Easily represent data along a time axis with adjustable intervals.
