@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:timebar_table/src/firstWhereOrNull_extension.dart';
 
 import '../timebar_table.dart';
+import './firstwhereornull_extension.dart';
 
 class DataSection extends StatelessWidget {
   final Map<Widget, List<BarData?>?> tableDataMap;
