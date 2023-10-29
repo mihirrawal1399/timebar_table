@@ -1,6 +1,6 @@
 # TimeBar Table
 
-The TimeBar Table Flutter package is designed to facilitate the creation of time-based bar charts with ease. It allows you to represent data that spans across specific time intervals, making it ideal for various applications, such as scheduling, event timelines, and more. This package offers customizable components for efficient data visualization within your Flutter application.
+A Flutter package for time-based data visualization. Create bar charts to represent data over time intervals with ease. Ideal for scheduling and event timelines.
 
 ## Features
 
