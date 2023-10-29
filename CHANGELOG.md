@@ -22,3 +22,9 @@
 
 - changed description to match dart conventions
 - import fixes for better pub dev score
+
+## 0.1.0
+
+- Added example screenshot for readme
+
+
